@@ -1,0 +1,10 @@
+name: ocd-builder-webhook
+description: A webhook that triggers ocd-builder
+home: https://github.com/ocd-scm/ocd-builder-webhook
+keywords:
+- ocd-builder-webhook
+- ocd-scm
+- openshift
+sources:
+- https://github.com/ocd-scm/ocd-builder-webhook
+version: "1.0.0"

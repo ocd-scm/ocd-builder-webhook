@@ -1,0 +1,44 @@
+[
+  {
+    "id": "ocd-builder",
+    "execute-command": "/usr/local/bin/trigger-oc-build.sh",
+    "command-working-directory": "/opt/app-root/src",
+    "pass-arguments-to-command":
+    [
+      {
+        "source": "payload",
+        "name": "ref"
+      }
+    ],
+    "trigger-rule":
+    {
+      "and":
+      [
+        {
+          "match":
+          {
+            "type": "value",
+            "value": "{{ getenv "WEBHOOK_SECRET" | js }}",
+            "parameter":
+            {
+              "source": "payload",
+              "name": "secret"
+            }
+          }
+        },
+        {
+          "match":
+          {
+            "type": "regex",
+            "regex": "{{ getenv "WEBHOOK_REF_REGEX" | js }}",
+            "parameter":
+            {
+              "source": "payload",
+              "name": "release.tag_name"
+            }
+          }
+        }
+      ]
+    }
+  }
+]
