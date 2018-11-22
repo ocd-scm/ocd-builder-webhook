@@ -37,6 +37,10 @@ spec:
         type: Rolling
       containers:
       - env:
+          {{- if .Values.insecureSkipTlsVerify }}
+          - name: "INSECURE_SKIP_TLS_VERIFY"
+            value: "--insecure-skip-tls-verify"
+          {{- end }}
           - name: "WEBHOOK_REPO_FULLNAME"
             value: {{ required "Missing required value webhookRepFullname" .Values.webhookRepFullname | quote }}
           - name: "BUILD_NAMESPACE"
