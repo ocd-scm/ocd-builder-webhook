@@ -20,6 +20,8 @@ COPY ./bin/* /usr/local/bin/
 
 COPY hooks.json /opt/app-root/src
 
+RUN mkdir /opt/app-root/src/.kube && chmod -R a+w /opt/app-root/src/.kube
+
 USER 1001
 
 EXPOSE 9000

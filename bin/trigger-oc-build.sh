@@ -10,11 +10,11 @@ IFS=$'\n\t'
 
 TAG=$1
 
-echo $OPENSHIFT_USER
-echo $OPENSHIFT_SERVER
-echo $BUILD_NAMESPACE
-echo $BUILD
-echo $TAG
+echo "OPENSHIFT_USER=$OPENSHIFT_USER"
+echo "OPENSHIFT_SERVER=$OPENSHIFT_SERVER"
+echo "BUILD_NAMESPACE=$BUILD_NAMESPACE"
+echo "BUILD=$BUILD"
+echo "TAG=$TAG"
 
 if [ -z "$OPENSHIFT_USER" ]; then
     (>&2 echo "ERROR could not login OPENSHIFT_USER not set")
@@ -44,7 +44,6 @@ fi
 
 if [ ! -z "$INSECURE_SKIP_TLS_VERIFY" ]; then
     (>&2 echo "WARNING! using $INSECURE_SKIP_TLS_VERIFY")
-    exit 5
 fi
 
 oc login ${INSECURE_SKIP_TLS_VERIFY} ${OPENSHIFT_SERVER} -u ${OPENSHIFT_USER} -p ${OPENSHIFT_PASSWORD} > /dev/null
