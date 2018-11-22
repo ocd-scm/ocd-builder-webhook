@@ -5,7 +5,7 @@ set -e
 helm upgrade --install \
     --set "insecureSkipTlsVerify=true,webhookRepFullname=simbo1905/demo1,buildNamespace=realworld,build=realworld" \
     ocd-builder-webhook \
-    ./ocd-builder-webhook-1.0.0.tgz
+    ocd-builder-webhook
 
 # oc expose service/ocd-builder-webhook
 
