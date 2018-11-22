@@ -7,21 +7,38 @@
     [
       {
         "source": "payload",
-        "name": "ref"
+        "name": "release.tag_name"
       }
     ],
     "trigger-rule":
     {
-        "match":
+      "and":
+      [
         {
+          "match":
+          {
+            "type": "value",
+            "value": "{{ getenv "WEBHOOK_REPO_FULLNAME" | js }}",
+            "parameter":
+            {
+              "source": "payload",
+              "name": "repository.full_name"
+            }
+          }
+        },
+        {
+          "match":
+          {
             "type": "regex",
             "regex": "{{ getenv "WEBHOOK_REF_REGEX" | js }}",
             "parameter":
             {
-                "source": "payload",
-                "name": "release.tag_name"
+              "source": "payload",
+              "name": "release.tag_name"
             }
-        }  
+          }
+        }
+      ]
     }
   }
 ]

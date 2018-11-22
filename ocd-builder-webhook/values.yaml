@@ -8,6 +8,8 @@ application_domain:
 replicas: 1
 # port
 port: 9000
+# webhookRepFullname: @required Sets WEBHOOK_REPO_FULLNAME which is matched on the webhook rule
+#webhookRepFullname: simbo1905/demo1
 # webhookSecret: will be randomly generated if not defined explicitly
 #webhookSecret: mysecret
 # secrets to mount as env vars

@@ -37,6 +37,8 @@ spec:
         type: Rolling
       containers:
       - env:
+          - name: "WEBHOOK_REPO_FULLNAME"
+            value: {{ required "Missing required value webhookRepFullname" .Values.webhookRepFullname | quote }}
           {{- if .Values.webhookRefRegex }}
           - name: "WEBHOOK_REF_REGEX"
             value: {{ .Values.webhookRefRegex | quote }}

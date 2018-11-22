@@ -2,9 +2,11 @@
 
 set -e
 
+    #--set "webhookRepFullname=simbo1905/demo1" \
 helm upgrade --install \
+    --set "webhookRepFullname=simbo1905/demo1" \
     ocd-builder-webhook \
-    ./ocd-builder-webhook/ocd-builder-webhook-1.0.0.tgz
+    ./ocd-builder-webhook-1.0.0.tgz
 
 # oc expose service/ocd-builder-webhook
 
