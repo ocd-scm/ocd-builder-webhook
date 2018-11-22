@@ -4,7 +4,7 @@ set -e
 
     #--set "webhookRepFullname=simbo1905/demo1" \
 helm upgrade --install \
-    --set "webhookRepFullname=simbo1905/demo1" \
+    --set "webhookRepFullname=simbo1905/demo1,buildNamespace=realworld,build=demoapp" \
     ocd-builder-webhook \
     ./ocd-builder-webhook-1.0.0.tgz
 

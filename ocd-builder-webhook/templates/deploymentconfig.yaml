@@ -39,6 +39,10 @@ spec:
       - env:
           - name: "WEBHOOK_REPO_FULLNAME"
             value: {{ required "Missing required value webhookRepFullname" .Values.webhookRepFullname | quote }}
+          - name: "BUILD_NAMESPACE"
+            value: {{ required "Missing required value buildNamespace" .Values.buildNamespace | quote }}
+          - name: "BUILD"
+            value: {{ required "Missing required value build" .Values.build | quote }}
           {{- if .Values.webhookRefRegex }}
           - name: "WEBHOOK_REF_REGEX"
             value: {{ .Values.webhookRefRegex | quote }}
