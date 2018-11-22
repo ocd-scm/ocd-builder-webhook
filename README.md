@@ -1,8 +1,8 @@
 # ocd-builder-webhook
 
-This is a webhook chart to trigger ocd-builder to create a tagged s2i image from git tags. 
+This is a webhook chart to trigger an openshift build to perform a release build. If you use ocd-build you can have it automatically tag the built container image with the git tag. 
 
-It is implemented using the [we hook engine](https://github.com/adnanh/webhook/blob/master/webhook.go) that pattern matches webhook JSON using Go and then invokes a simple shell script. The shell script updates the ocd-builder configuration to reference the new git tag which triggers a build. 
+It is implemented using the awesome [webhook engine](https://github.com/adnanh/webhook/blob/master/webhook.go) which is a small but beautful Go app that is configured to match and extract webhook json to invoke shell script. The shell script then logs into openshift and patches the git tag into the build config. 
 
 ## Usage
 
@@ -20,4 +20,15 @@ helm upgrade --install \
     --set "webhookRepFullname=simbo1905/demorepo,buildNamespace=myproject,build=demobuild" \
     ocd-builder-webhook-my-app \
     ocd-builder-webhook
+```
+
+## Security
+
+You can setup a seperate build project on openshift that only has build permissions:
+
+```oc create role buildpatch --verb=patch --resource=buildconfigs.build.openshift.io  -n buildproject
+oc adm policy add-role-to-user buildpatch $USER --role-namespace=buildproject -n buildproject
+
+oc create role buildinstantiate --verb=create --resource=buildconfigs.build.openshift.io/instantiate  -n buildproject
+oc adm policy add-role-to-user buildinstantiate $USER --role-namespace=buildproject -n buildproject
 ```
