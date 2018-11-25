@@ -36,3 +36,9 @@ oc adm policy add-role-to-user buildpatch $USER --role-namespace=buildproject -n
 oc create role buildinstantiate --verb=create --resource=buildconfigs.build.openshift.io/instantiate  -n buildproject
 oc adm policy add-role-to-user buildinstantiate $USER --role-namespace=buildproject -n buildproject
 ```
+
+## See Also
+
+The [ocd-meta wiki](https://github.com/ocd-scm/ocd-meta/wiki)
+
+[ocd-builder](https://github.com/ocd-scm/ocd-builder)
