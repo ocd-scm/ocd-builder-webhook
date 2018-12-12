@@ -18,6 +18,18 @@
           "match":
           {
             "type": "value",
+            "value": "{{ getenv "WEBHOOK_SECRET" | js }}",
+            "parameter":
+            {
+              "source": "payload",
+              "name": "secret"
+            }
+          }
+        },
+        {
+          "match":
+          {
+            "type": "value",
             "value": "{{ getenv "WEBHOOK_REPO_FULLNAME" | js }}",
             "parameter":
             {
