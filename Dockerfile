@@ -18,12 +18,16 @@ MAINTAINER Simon Massey <simbo1905@60hertz.com>
 
 COPY ./bin/* /usr/local/bin/
 
-COPY hooks.json /opt/app-root/src
-
 RUN mkdir /opt/app-root/src/.kube && chmod -R a+w /opt/app-root/src/.kube
+
+RUN mkdir /opt/app-root/src/hooks && chgrp 0 /opt/app-root/src/hooks && chmod g+w /opt/app-root/src/hooks
+
+COPY hooks.json /opt/app-root/src/hooks
 
 USER 1001
 
 EXPOSE 9000
+
+WORKDIR "/opt/app-root/src/hooks"
 
 CMD  ["/usr/local/bin/webhook", "-verbose", "-hotreload", "-template"]
