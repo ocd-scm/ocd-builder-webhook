@@ -32,7 +32,7 @@ spec:
       labels:
         name: {{ .Values.name | quote }}
     spec:
-      serviceAccountName: {{ print "sa-build-" .Values.env  | quote }}
+      serviceAccountName: {{ print "sa-build-" .Values.name  | quote }}
       revisionHistoryLimit: 10,
       strategy:
         type: Rolling
