@@ -16,13 +16,13 @@ FROM simonmassey/ocd-tools
 
 MAINTAINER Simon Massey <simbo1905@60hertz.com>
 
-COPY ./bin/* /usr/local/bin/
-
 RUN mkdir /opt/app-root/src/.kube && chmod -R a+w /opt/app-root/src/.kube
 
 RUN mkdir /opt/app-root/src/hooks && chgrp 0 /opt/app-root/src/hooks && chmod g+w /opt/app-root/src/hooks
 
 COPY hooks.json /opt/app-root/src/hooks
+
+COPY ./bin/* /usr/local/bin/
 
 USER 1001
 
