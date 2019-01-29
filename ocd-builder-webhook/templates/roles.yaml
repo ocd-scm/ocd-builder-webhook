@@ -82,3 +82,16 @@ rules:
   - buildconfigs/instantiate
   verbs:
   - create
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  creationTimestamp: null
+  name: {{ print .Values.name "saget"  | quote }}
+rules:
+- apiGroups:
+  - ""
+  resources:
+  - serviceaccounts
+  verbs:
+  - get
