@@ -12,9 +12,8 @@ It is implemented using the awesome [webhook engine](https://github.com/adnanh/w
 
 ## Usage
 
-The [ocd-meta wiki](https://github.com/ocd-scm/ocd-meta/wiki) has a full tutorial on each of 
+The [ocd-meta wiki](https://github.com/ocd-scm/ocd-meta/wiki) has a full tutorial on each of Minishift and Openshift Online Pro that includes setting up a release build environment. That uses Helmfile to install this component.
 
 ## See Also
-
 
 [ocd-builder](https://github.com/ocd-scm/ocd-builder)
