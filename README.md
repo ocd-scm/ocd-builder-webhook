@@ -6,7 +6,7 @@ As this component is used for release builds it can run along side any CI build.
 
 # Architecture
 
-This component requires quite a lot of internal moving parts. The good news is that it is supplied as a aimple to configure chart. It also uses stable and standard Origin features that work on locked down Origin. It would have been simpler to use a custom build type but that has to be enables by a cluster administrator. The internal complexity of this component is to avoid needing cluster admin rights. 
+This component requires quite a lot of internal moving parts. The good news is that it is supplied as a simple to configure chart. It also uses stable and standard Origin features that work on locked down Origin. It would have been simpler to use a custom build type but that has to be enabled by a cluster administrator. The internal complexity of this component is to avoid needing cluster admin rights. 
 
 ![alt text][ocd-build-components]
 
