@@ -6,6 +6,8 @@ As this component is used for release builds it can run along side any CI build.
 
 # Architecture
 
+This component requires quite a lot of internal moving parts. The good news is that it is supplied as a aimple to configure chart. It also uses stable and standard Origin features. 
+
 ![alt text][ocd-build-components]
 
 [ocd-build-components]: https://github.com/ocd-scm/ocd-meta/blob/master/imgs/ocd-webhook.png?raw=true "OCD Builder Components"
