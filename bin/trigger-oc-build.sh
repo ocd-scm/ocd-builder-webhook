@@ -47,7 +47,7 @@ set -x # debug
 # if you get forbidden try:
 #   oc create role buildpatch --verb=patch --resource=buildconfigs.build.openshift.io  -n ${BUILD_NAMESPACE}
 #   oc adm policy add-role-to-user buildpatch ${OPENSHIFT_USER} --role-namespace={BUILD_NAMESPACE} -n {BUILD_NAMESPACE}
-oc patch ${INSECURE_SKIP_TLS_VERIFY} -n ${BUILD_NAMESPACE} bc/${BUILD} -p '[{"op": "replace", "path": "/spec/source/git/ref", "value": "'$TAG'"}]' --type=json
+oc patch ${INSECURE_SKIP_TLS_VERIFY} -n ${BUILD_NAMESPACE} buildconfigs/${BUILD} -p '[{"op": "replace", "path": "/spec/source/git/ref", "value": "'$TAG'"}]' --type=json
 
 # start the patched build
 # if you get forbidden try:
